@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Smart Probation</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap');
+
+*{
+    box-sizing:border-box;
+}
+
+:root{
+    --navy:#0B2742;
+    --blue:#155B91;
+    --light-blue:#EAF4FB;
+    --bg:#F5F7FA;
+    --white:#FFFFFF;
+    --text:#172334;
+    --muted:#718096;
+    --line:#E4EAF0;
+    --green:#15945A;
+    --green-bg:#E9F8F0;
+    --orange:#E98B18;
+    --orange-bg:#FFF4DF;
+    --red:#D94848;
+    --red-bg:#FDECEC;
+}
+
+body{
+    margin:0;
+    background:#DDE6ED;
+    font-family:"Noto Sans Thai",sans-serif;
+    color:var(--text);
+}
+
+button,
+input{
+    font-family:inherit;
+}
+
+.app{
+    width:100%;
+    max-width:430px;
+    min-height:100vh;
+    margin:auto;
+    background:var(--bg);
+    position:relative;
+    overflow:hidden;
+}
+
+/* ================= LOGIN ================= */
+
+.login{
+    min-height:100vh;
+    padding:40px 25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    color:white;
+
+    background:
+    linear-gradient(
+        145deg,
+        #071F35 0%,
+        #0B3556 55%,
+        #176996 100%
+    );
+}
+
+.logo-big{
+    width:80px;
+    height:80px;
+    border-radius:25px;
+    background:white;
+    color:var(--navy);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+    font-weight:800;
+
+    margin-bottom:22px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.login h1{
+    font-size:31px;
+    line-height:1.1;
+    margin:0;
+}
+
+.login-description{
+    opacity:.75;
+    line-height:1.7;
+    margin:10px 0 30px;
+}
+
+.login-box{
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:25px;
+    padding:20px;
+
+    backdrop-filter:blur(15px);
+}
+
+.login-box label{
+    font-size:13px;
+    opacity:.85;
+}
+
+.login-box input{
+    width:100%;
+    padding:14px;
+    border:0;
+    outline:none;
+    border-radius:13px;
+
+    margin:7px 0 15px;
+
+    background:white;
+    color:#172334;
+}
+
+.login-button{
+    width:100%;
+    border:0;
+    padding:14px;
+    border-radius:13px;
+
+    background:white;
+    color:var(--navy);
+
+    font-weight:800;
+    cursor:pointer;
+}
+
+.demo-text{
+    text-align:center;
+    font-size:11px;
+    opacity:.6;
+    margin-top:15px;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    background:
+    linear-gradient(
+        135deg,
+        var(--navy),
+        #12527F
+    );
+
+    color:white;
+
+    padding:18px;
+
+    border-radius:0 0 25px 25px;
+}
+
+.header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.logo-small{
+    width:43px;
+    height:43px;
+
+    border-radius:13px;
+
+    background:white;
+    color:var(--navy);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:800;
+}
+
+.brand-title{
+    font-size:16px;
+    font-weight:700;
+}
+
+.brand-subtitle{
+    font-size:10px;
+    opacity:.7;
+}
+
+.notification-button{
+    width:40px;
+    height:40px;
+
+    border-radius:13px;
+    border:1px solid rgba(255,255,255,.2);
+
+    background:rgba(255,255,255,.1);
+
+    color:white;
+
+    cursor:pointer;
+
+    position:relative;
+}
+
+.notification-dot{
+    position:absolute;
+
+    width:8px;
+    height:8px;
+
+    background:#FFB23E;
+
+    border-radius:50%;
+
+    right:7px;
+    top:6px;
+}
+
+.greeting{
+    margin-top:20px;
+}
+
+.greeting small{
+    opacity:.7;
+}
+
+.greeting h2{
+    margin:3px 0 0;
+    font-size:21px;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    padding:16px;
+}
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin:3px 2px 11px;
+}
+
+.section-title h3{
+    margin:0;
+    font-size:17px;
+}
+
+.section-title span{
+    font-size:12px;
+    color:var(--blue);
+}
+
+/* ================= APPOINTMENT CARD ================= */
+
+.appointment-card{
+    background:white;
+
+    border:1px solid var(--line);
+
+    border-radius:20px;
+
+    padding:19px;
+
+    box-shadow:0 8px 25px rgba(23,59,85,.06);
+}
+
+.appointment-head{
+    display:flex;
+    justify-content:space-between;
+}
+
+.badge{
+    display:inline-block;
+
+    padding:6px 10px;
+
+    border-radius:999px;
+
+    font-size:11px;
+    font-weight:700;
+}
+
+.pending{
+    color:#
